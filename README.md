@@ -412,4 +412,4 @@ For issues or questions:
 
 ---
 
-**Built with ❤️ for better sleep health**
+**Built with passion for better sleep health!**
