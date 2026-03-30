@@ -1,14 +1,14 @@
-# 🌙 Sleep Quality Predictor - Advanced ML System
+# Sleep Quality Predictor - Advanced ML System
 
 A sophisticated Machine Learning-based web application that analyzes lifestyle and physiological factors to classify sleep quality as **Good, Average, or Poor** with comprehensive insights and personalized recommendations.
 
-##  **Live Demo**
+## Live Demo
 
-**🌟 Deployed on Netlify:** [https://sleep-quality-predictor.netlify.app](https://sleep-quality-predictor.netlify.app)
+**Deployed on Netlify:** [https://sleep-quality-predictor.netlify.app](https://sleep-quality-predictor.netlify.app)
 
-## 📋 **Core Features**
+## Core Features
 
-### 🔍 **Input Analysis**
+### Input Analysis
 - **Sleep Duration**: Auto-calculated from bedtime/wake-up time
 - **Exercise Tracking**: Daily physical activity monitoring
 - **Screen Time**: Digital device usage assessment
@@ -18,14 +18,14 @@ A sophisticated Machine Learning-based web application that analyzes lifestyle a
 - **Sleep Interruptions**: Night awakening frequency
 - **Time Management**: Bedtime consistency evaluation
 
-### 🧠 **ML Pipeline**
+### ML Pipeline
 1. **Data Preprocessing**: Time conversion, categorical encoding, feature scaling
 2. **Model Training**: 4 algorithms trained on synthetic sleep dataset
 3. **Model Selection**: Automatic accuracy-based best model identification
 4. **Prediction**: Real-time classification with probability distributions
 5. **Insight Generation**: Feature importance and confidence scoring
 
-### 📈 **Output Features**
+### Output Features
 - **Quality Classification**: Good/Average/Poor sleep quality prediction
 - **Confidence Scoring**: ML model confidence percentage
 - **Sleep Score**: Comprehensive 0-100 point evaluation
@@ -34,9 +34,9 @@ A sophisticated Machine Learning-based web application that analyzes lifestyle a
 - **Probability Distribution**: All category probabilities
 - **Model Information**: Algorithm used and accuracy metrics
 
-## 🛠️ **Technical Architecture**
+## Technical Architecture
 
-### **Frontend Technology Stack**
+### Frontend Technology Stack
 - **HTML5**: Semantic markup with accessibility features
 - **CSS3**: Modern styling with gradients and animations
 - **JavaScript ES6+**: Modern JavaScript with async/await
@@ -52,56 +52,56 @@ A sophisticated Machine Learning-based web application that analyzes lifestyle a
 - **NumPy**: Numerical computing
 - **Multiple ML Algorithms**: Random Forest, Logistic Regression, Decision Tree, SVM
 
-### **Data Science Features**
+### Data Science Features
 - **Synthetic Data Generation**: Realistic sleep dataset creation
 - **Feature Engineering**: Time-based and categorical encoding
 - **Model Evaluation**: Accuracy scoring and performance metrics
 - **Cross-Validation**: Robust model testing methodology
 - **Probability Calibration**: Confidence interval estimation
 
-## 📱 **Responsive Design**
+## Responsive Design
 
-### **Desktop Experience**
+### Desktop Experience
 - **Grid Layout**: Optimized for large screens
 - **Hover Effects**: Interactive card animations
 - **Full Charts**: Detailed data visualization
 - **Comprehensive Forms**: All input controls visible
 
-### **Mobile Experience**
+### Mobile Experience
 - **Touch Controls**: Mobile-optimized inputs
 - **Compact Layout**: Stacked card design
 - **Responsive Charts**: Adaptive visualization sizing
 - **Thumb-Friendly**: Large tap targets for mobile
 
-## � **Professional UI/UX**
+## Professional UI/UX
 
-### **Color Palette**
+### Color Palette
 - **Primary**: Deep blues (#667eea) and purples (#764ba2)
 - **Success**: Green gradients (#4ade80 to #22c55e)
 - **Warning**: Yellow gradients (#fbbf24 to #f59e0b)
 - **Error**: Red gradients (#f87171 to #ef4444)
 - **Neutral**: Grays (#f7fafc to #2d3748)
 
-### **Typography**
+### Typography
 - **Font Family**: Poppins (Google Fonts)
 - **Weights**: 300 (light), 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
 - **Responsive**: Scales perfectly across devices
 
-### **Iconography**
+### Iconography
 - **Sleep**: Moon (🌙) and bed (🛏️) icons
 - **Health**: Heart (❤️) and brain (🧠) icons
 - **Activity**: Running (🏃) and exercise (💪) icons
 - **Technology**: Chart (📊) and analytics (📈) icons
 
-## 🔧 **Development Setup**
+## Development Setup
 
-### **Prerequisites**
+### Prerequisites
 - **Python 3.9+**: Core programming language
 - **Node.js 18+**: Frontend tooling
 - **Git**: Version control
 - **Modern Browser**: Chrome, Firefox, Safari, Edge
 
-### **Local Development**
+### Local Development
 ```bash
 # Clone repository
 git clone https://github.com/astafofo/sleep-quality-predictor.git
@@ -127,7 +127,7 @@ npx serve .
 # Open browser to http://localhost:8000
 ```
 
-## 📚 **Project Structure**
+## Project Structure
 
 ```
 sleep-quality-predictor/
@@ -144,23 +144,23 @@ sleep-quality-predictor/
 └── README.md              # Project documentation
 ```
 
-## 🎓 **Educational Value**
+## Research Applications
 
-### **Computer Science Concepts**
+### Computer Science Concepts
 - **Machine Learning**: Supervised learning algorithms
 - **Data Preprocessing**: Feature engineering and scaling
 - **Model Evaluation**: Accuracy metrics and validation
 - **Web Development**: Full-stack application architecture
 - **UI/UX Design**: User interface and experience principles
 
-### **Data Science Skills**
+### Data Science Skills
 - **Feature Engineering**: Time-based and categorical encoding
 - **Model Selection**: Algorithm comparison and optimization
 - **Probability Theory**: Confidence intervals and distributions
 - **Data Visualization**: Chart.js implementation
 - **Statistical Analysis**: Correlation and feature importance
 
-### **Software Engineering**
+### Software Engineering
 - **Version Control**: Git workflow and collaboration
 - **Frontend Development**: Modern JavaScript and CSS
 - **Backend Development**: Python Flask framework
@@ -183,51 +183,51 @@ sleep-quality-predictor/
 - **Outcome Measurement**: Progress evaluation
 - **Population Health**: Sleep pattern analysis
 
-## 🚀 **Future Enhancements**
+## Future Enhancements
 
-### **Advanced Features**
+### Advanced Features
 - **Wearable Integration**: Fitbit, Apple Watch data sync
 - **AI Chatbot**: Conversational sleep assistant
 - **Mobile App**: Native iOS/Android applications
 - **Voice Interface**: Alexa/Google Assistant integration
 - **Social Features**: Community challenges and sharing
 
-### **Data Science Improvements**
+### Data Science Improvements
 - **Real Datasets**: Integration with sleep research data
 - **Deep Learning**: Neural networks for pattern recognition
 - **Time Series Analysis**: Longitudinal sleep tracking
 - **Anomaly Detection**: Sleep disorder identification
 - **Personalization**: Individual model adaptation
 
-## 🤝 **Contributing**
+## Contributing
 
-### **Development Workflow**
+### Development Workflow
 1. **Fork Repository**: Create your own copy
 2. **Feature Branch**: Create branch for new features
 3. **Testing**: Comprehensive testing and validation
 4. **Documentation**: Update README and code comments
 5. **Pull Request**: Submit changes for review
 
-### **Code Standards**
+### Code Standards
 - **Python**: PEP 8 compliance
 - **JavaScript**: ES6+ standards
 - **CSS**: BEM methodology
 - **HTML5**: Semantic markup
 - **Documentation**: Clear comments and README
 
-## 📄 **License**
+## License
 
 This project is open source and available under the **MIT License**.
 
-## 🎯 **Learning Outcomes**
+## Learning Outcomes
 
-### **Technical Skills**
+### Technical Skills
 - **Machine Learning**: Algorithm implementation and evaluation
 - **Web Development**: Full-stack application creation
 - **Data Science**: Analysis and visualization techniques
 - **Software Engineering**: Best practices and deployment
 
-### **Domain Knowledge**
+### Domain Knowledge
 - **Sleep Science**: Understanding sleep quality factors
 - **Health Analytics**: Quantitative health assessment
 - **User Experience**: Interface design and usability
@@ -235,34 +235,35 @@ This project is open source and available under the **MIT License**.
 
 ---
 
-## 🌟 **Project Highlights**
+## Project Highlights
 
-- **🤖 ML-Powered**: Multiple algorithms with intelligent selection
-- **📊 Comprehensive**: Sleep scoring, phases, and efficiency analysis
-- **💡 Intelligent**: Personalized recommendations system
-- **🎨 Professional**: Modern UI with responsive design
-- **🚀 Deployed**: Live demo with global accessibility
+- **ML-Powered**: Multiple algorithms with intelligent selection
+- **Comprehensive**: Sleep scoring, phases, and efficiency analysis
+- **Intelligent**: Personalized recommendations system
+- **Professional**: Modern UI with responsive design
+- **Deployed**: Live demo with global accessibility
 
 ---
 
-**🌙 Built with passion for better sleep health and academic excellence!**
+**Built with passion for better sleep health!**
 
-*Deployed on Netlify • Powered by Machine Learning • Designed for Education*
+*Deployed on Netlify • Powered by Advanced Algorithms • Designed for Professional Use*
 
 ## Project Structure
 
 ```
 sleep-quality-predictor/
-├── app.py                 # Flask application with ML model
-├── requirements.txt       # Python dependencies
-├── README.md             # Project documentation
-├── templates/
-│   └── index.html        # Main HTML template
-└── static/
-    ├── css/
-    │   └── style.css     # Styling with gradient design
-    └── js/
-        └── script.js      # Interactive JavaScript
+├── LICENSE                # MIT License for open source use
+├── README.md              # Project documentation
+├── index.html             # Main application page with advanced UI
+├── static/
+│   ├── css/
+│   │   └── style.css      # Responsive styling with animations
+│   └── js/
+│       └── script-simple.js # Advanced JavaScript with ML algorithms
+├── netlify.toml           # Netlify deployment configuration
+├── _redirects             # Netlify routing rules
+└── package.json            # Project metadata
 ```
 
 ## Installation & Setup
