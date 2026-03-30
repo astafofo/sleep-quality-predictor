@@ -406,6 +406,9 @@ function displayResults(data) {
     // Show results section
     resultsSection.style.display = 'grid';
     
+    // Save to history
+    saveToHistory(data);
+    
     // Scroll to results
     setTimeout(() => {
         resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
