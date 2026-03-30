@@ -1,5 +1,6 @@
 [build]
   publish = "."
+  command = "echo 'Build timestamp: $(date)'"
 
 [[redirects]]
   from = "/*"
