@@ -132,7 +132,7 @@ function generatePrediction(data) {
     let score = 0;
     
     // Sleep duration scoring
-    const sleepDuration = parseFloat(data.get('sleep_duration') || 7);
+    const sleepDuration = parseFloat(data.sleep_duration || '7');
     if (sleepDuration >= 7 && sleepDuration <= 9) {
         score += 3;
     } else if (sleepDuration >= 6 && sleepDuration <= 10) {
@@ -142,7 +142,7 @@ function generatePrediction(data) {
     }
     
     // Exercise scoring
-    const exercise = parseFloat(data.get('exercise_duration') || 30);
+    const exercise = parseFloat(data.exercise_duration || '30');
     if (exercise >= 45) {
         score += 2;
     } else if (exercise >= 30) {
@@ -152,7 +152,7 @@ function generatePrediction(data) {
     }
     
     // Screen time scoring
-    const screenTime = parseFloat(data.get('screen_time') || 120);
+    const screenTime = parseFloat(data.screen_time || '120');
     if (screenTime <= 30) {
         score += 1.5;
     } else if (screenTime <= 60) {
@@ -162,7 +162,7 @@ function generatePrediction(data) {
     }
     
     // Stress scoring
-    const stress = parseInt(data.get('stress_level') || 5);
+    const stress = parseInt(data.stress_level || '5');
     if (stress <= 3) {
         score += 1.5;
     } else if (stress <= 6) {
@@ -172,7 +172,7 @@ function generatePrediction(data) {
     }
     
     // Caffeine scoring
-    const caffeine = data.get('caffeine_intake') || 'Low';
+    const caffeine = data.caffeine_intake || 'Low';
     if (caffeine === 'None') {
         score += 1;
     } else if (caffeine === 'Low') {
@@ -182,7 +182,7 @@ function generatePrediction(data) {
     }
     
     // Mood scoring
-    const mood = data.get('mood') || 'Neutral';
+    const mood = data.mood || 'Neutral';
     if (mood === 'Happy') {
         score += 1;
     } else if (mood === 'Neutral') {
@@ -192,7 +192,7 @@ function generatePrediction(data) {
     }
     
     // Sleep interruptions scoring
-    const interruptions = data.get('sleep_interruptions') || '0';
+    const interruptions = data.sleep_interruptions || '0';
     if (interruptions === '0') {
         score += 1.5;
     } else {
@@ -237,7 +237,7 @@ function generatePrediction(data) {
     };
     
     // Calculate sleep efficiency
-    const actualSleep = parseFloat(data.get('sleep_duration'));
+    const actualSleep = parseFloat(data.sleep_duration);
     const timeInBed = actualSleep + (interruptions === '1' ? 1 : 0);
     const sleepEfficiency = Math.round((actualSleep / timeInBed) * 100);
     
