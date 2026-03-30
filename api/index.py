@@ -1,23 +1,44 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, jsonify, request
 import sys
 import os
 
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from app import SleepQualityPredictor
+# Import the predictor class directly
+try:
+    from app import SleepQualityPredictor
+    predictor = SleepQualityPredictor()
+except ImportError as e:
+    # Fallback for deployment
+    print(f"Import error: {e}")
+    predictor = None
 
 app = Flask(__name__)
 
-# Initialize predictor
-predictor = SleepQualityPredictor()
-
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return """
+    <html>
+        <head>
+            <title>Sleep Quality Predictor API</title>
+            <script>
+                // Redirect to main app
+                window.location.href = '/';
+            </script>
+        </head>
+        <body>
+            <h1>Sleep Quality Predictor API</h1>
+            <p>Redirecting to main app...</p>
+        </body>
+    </html>
+    """
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    if not predictor:
+        return jsonify({"error": "Model not available"}), 500
+        
     try:
         data = request.get_json()
         
@@ -51,7 +72,10 @@ def predict():
 
 @app.route('/health')
 def health():
-    return jsonify({"status": "healthy", "model_trained": predictor.is_trained})
+    return jsonify({
+        "status": "healthy", 
+        "model_trained": predictor.is_trained if predictor else False
+    })
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+# For Vercel serverless
+handler = app
