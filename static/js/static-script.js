@@ -47,6 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('DOM initialized successfully');
     
+    // TEST: Add a click listener to the form to verify it works
+    sleepForm.addEventListener('click', function() {
+        console.log('Form was clicked!');
+    });
+    
     // Update stress slider value display
     stressSlider.addEventListener('input', function() {
         stressValue.textContent = this.value;
@@ -57,25 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
     wakeUpTimeInput.addEventListener('change', calculateSleepDuration);
 
     // Form submission
-    sleepForm.addEventListener('submit', handleFormSubmit);
-
-    // Reset button
-    resetBtn.addEventListener('click', resetForm);
-
-    // History button
-    historyBtn.addEventListener('click', toggleHistory);
-
-    // Clear history button
-    clearHistoryBtn.addEventListener('click', clearHistory);
-
-    // Add input validation
-    addInputValidation();
-
-    // Load history on page load
-    loadHistory();
-
-    // Calculate initial sleep duration
-    calculateSleepDuration();
+    sleepForm.addEventListener('submit', function(e) {
+        console.log('Form submit event triggered!');
+        handleFormSubmit(e);
+    });
     
     console.log('Event listeners attached successfully');
 });
