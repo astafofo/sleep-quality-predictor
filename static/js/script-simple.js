@@ -78,6 +78,28 @@ function initApp() {
         });
     }
     
+    if (predictBtn) {
+        predictBtn.addEventListener('click', handleFormSubmit);
+    }
+    
+    // Add reset button listener
+    const resetBtn = document.getElementById('resetBtn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetForm);
+    }
+    
+    // Add history button listener
+    const historyBtn = document.getElementById('historyBtn');
+    if (historyBtn) {
+        historyBtn.addEventListener('click', toggleHistory);
+    }
+    
+    // Add clear history button listener
+    const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+    if (clearHistoryBtn) {
+        clearHistoryBtn.addEventListener('click', clearHistory);
+    }
+    
     console.log('Event listeners attached!');
 }
 
@@ -372,7 +394,7 @@ function displayResults(data) {
         
         const value = document.createElement('div');
         value.className = 'probability-value';
-        value.textContent = Math.round(probability * 100) + '%';
+        value.textContent = Math.round(probability * 100);
         
         bar.appendChild(fill);
         probabilityItem.appendChild(label);
@@ -403,6 +425,127 @@ function showLoading() {
 function hideLoading() {
     if (loadingOverlay) {
         loadingOverlay.classList.remove('active');
+    }
+}
+
+// Reset form
+function resetForm() {
+    console.log('Resetting form...');
+    
+    // Clear form fields
+    sleepForm.reset();
+    
+    // Clear results
+    resultsSection.style.display = 'none';
+    
+    // Reset sleep duration calculation
+    const sleepDurationInput = document.getElementById('sleep_duration');
+    if (sleepDurationInput) {
+        sleepDurationInput.value = '';
+    }
+    
+    console.log('Form reset complete');
+}
+
+// Toggle history section
+function toggleHistory() {
+    console.log('Toggling history section...');
+    
+    if (historySection.style.display === 'none' || historySection.style.display === '') {
+        historySection.style.display = 'block';
+        loadHistory();
+    } else {
+        historySection.style.display = 'none';
+    }
+}
+
+// Save to history
+function saveToHistory(data) {
+    console.log('Saving to history:', data);
+    
+    // Get existing history
+    let history = JSON.parse(localStorage.getItem('sleepHistory')) || [];
+    
+    // Add new entry
+    const entry = {
+        date: new Date().toLocaleString(),
+        prediction: data.prediction,
+        confidence: Math.round(data.confidence * 100),
+        score: data.score,
+        sleepDuration: document.getElementById('sleep_duration').value
+    };
+    
+    history.unshift(entry);
+    
+    // Keep only last 10 entries
+    if (history.length > 10) {
+        history = history.slice(0, 10);
+    }
+    
+    // Save to localStorage
+    localStorage.setItem('sleepHistory', JSON.stringify(history));
+    
+    console.log('History saved:', history);
+}
+
+// Load history
+function loadHistory() {
+    console.log('Loading history...');
+    
+    const history = JSON.parse(localStorage.getItem('sleepHistory')) || [];
+    const historyTableBody = document.getElementById('historyTableBody');
+    
+    if (historyTableBody) {
+        historyTableBody.innerHTML = '';
+        
+        if (history.length === 0) {
+            const row = historyTableBody.insertRow();
+            const cell = row.insertCell();
+            cell.colSpan = 4;
+            cell.textContent = 'No prediction history yet. Make your first prediction!';
+            cell.className = 'no-history';
+            historyTableBody.appendChild(row);
+        } else {
+            history.forEach((entry, index) => {
+                const row = historyTableBody.insertRow();
+                
+                // Date
+                const dateCell = row.insertCell();
+                dateCell.textContent = entry.date;
+                
+                // Prediction
+                const predictionCell = row.insertCell();
+                predictionCell.textContent = entry.prediction;
+                predictionCell.className = 'prediction-' + entry.prediction.toLowerCase();
+                
+                // Confidence
+                const confidenceCell = row.insertCell();
+                confidenceCell.textContent = entry.confidence + '%';
+                
+                // Score
+                const scoreCell = row.insertCell();
+                scoreCell.textContent = entry.score;
+                
+                // Sleep Duration
+                const durationCell = row.insertCell();
+                durationCell.textContent = entry.sleepDuration + ' hours';
+                
+                historyTableBody.appendChild(row);
+            });
+        }
+    }
+    
+    console.log('History loaded:', history);
+}
+
+// Clear history
+function clearHistory() {
+    console.log('Clearing history...');
+    
+    if (confirm('Are you sure you want to clear all prediction history?')) {
+        localStorage.removeItem('sleepHistory');
+        loadHistory(); // Reload the empty history
+        console.log('History cleared');
     }
 }
 
