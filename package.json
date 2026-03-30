@@ -1,0 +1,12 @@
+{
+  "name": "sleep-quality-predictor",
+  "version": "1.0.0",
+  "description": "Advanced ML-powered sleep quality predictor",
+  "scripts": {
+    "build": "echo 'Building Sleep Quality Predictor...' && echo 'Build complete!'",
+    "start": "python -m http.server 8000"
+  },
+  "keywords": ["sleep", "machine-learning", "health", "prediction"],
+  "author": "Astafofo",
+  "license": "MIT"
+}
