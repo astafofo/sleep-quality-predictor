@@ -1,32 +1,52 @@
-// DOM Elements
-const sleepForm = document.getElementById('sleepForm');
-const predictBtn = document.getElementById('predictBtn');
-const resetBtn = document.getElementById('resetBtn');
-const historyBtn = document.getElementById('historyBtn');
-const clearHistoryBtn = document.getElementById('clearHistoryBtn');
-const resultsSection = document.getElementById('resultsSection');
-const historySection = document.getElementById('historySection');
-const loadingOverlay = document.getElementById('loadingOverlay');
-const stressSlider = document.getElementById('stress_level');
-const stressValue = document.getElementById('stressValue');
-const bedtimeInput = document.getElementById('bedtime');
-const wakeUpTimeInput = document.getElementById('wake_up_time');
-const sleepDurationInput = document.getElementById('sleep_duration');
-
-// Result Elements
-const qualityBadge = document.getElementById('qualityBadge');
-const predictionText = document.getElementById('predictionText');
-const confidenceBar = document.getElementById('confidenceBar');
-const confidenceText = document.getElementById('confidenceText');
-const suggestionsList = document.getElementById('suggestionsList');
-const probabilityBars = document.getElementById('probabilityBars');
-const historyTableBody = document.getElementById('historyTableBody');
-const trendChart = document.getElementById('trendChart');
+// DOM Elements (will be initialized after DOM loads)
+let sleepForm, predictBtn, resetBtn, historyBtn, clearHistoryBtn;
+let resultsSection, historySection, loadingOverlay;
+let stressSlider, stressValue, bedtimeInput, wakeUpTimeInput, sleepDurationInput;
+let qualityBadge, predictionText, confidenceBar, confidenceText;
+let suggestionsList, probabilityBars, historyTableBody, trendChart;
 let chart = null;
 let predictionHistory = JSON.parse(localStorage.getItem('sleepHistory')) || [];
 
+// Initialize DOM elements
+function initializeDOM() {
+    sleepForm = document.getElementById('sleepForm');
+    predictBtn = document.getElementById('predictBtn');
+    resetBtn = document.getElementById('resetBtn');
+    historyBtn = document.getElementById('historyBtn');
+    clearHistoryBtn = document.getElementById('clearHistoryBtn');
+    resultsSection = document.getElementById('resultsSection');
+    historySection = document.getElementById('historySection');
+    loadingOverlay = document.getElementById('loadingOverlay');
+    stressSlider = document.getElementById('stress_level');
+    stressValue = document.getElementById('stressValue');
+    bedtimeInput = document.getElementById('bedtime');
+    wakeUpTimeInput = document.getElementById('wake_up_time');
+    sleepDurationInput = document.getElementById('sleep_duration');
+    
+    // Result Elements
+    qualityBadge = document.getElementById('qualityBadge');
+    predictionText = document.getElementById('predictionText');
+    confidenceBar = document.getElementById('confidenceBar');
+    confidenceText = document.getElementById('confidenceText');
+    suggestionsList = document.getElementById('suggestionsList');
+    probabilityBars = document.getElementById('probabilityBars');
+    historyTableBody = document.getElementById('historyTableBody');
+    trendChart = document.getElementById('trendChart');
+}
+
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize DOM elements
+    initializeDOM();
+    
+    // Check if elements exist
+    if (!sleepForm) {
+        console.error('Sleep form not found!');
+        return;
+    }
+    
+    console.log('DOM initialized successfully');
+    
     // Update stress slider value display
     stressSlider.addEventListener('input', function() {
         stressValue.textContent = this.value;
@@ -56,6 +76,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Calculate initial sleep duration
     calculateSleepDuration();
+    
+    console.log('Event listeners attached successfully');
 });
 
 function calculateSleepDuration() {
@@ -89,17 +111,21 @@ function calculateSleepDuration() {
 }
 
 function handleFormSubmit(e) {
+    console.log('Form submitted!');
     e.preventDefault();
     
     if (!validateForm()) {
+        console.log('Form validation failed');
         return;
     }
-
+    
+    console.log('Form validation passed');
     showLoading();
     
     // Simulate processing time
     setTimeout(() => {
         hideLoading();
+        console.log('Generating prediction...');
         const result = generatePrediction();
         console.log('Prediction result:', result); // Debug log
         displayResults(result);
@@ -108,6 +134,7 @@ function handleFormSubmit(e) {
 
 function generatePrediction() {
     const formData = getFormData();
+    console.log('Form data:', formData);
     
     // Advanced scoring algorithm
     let score = 0;
