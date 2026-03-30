@@ -242,12 +242,20 @@ function generatePrediction() {
     });
     
     // Calculate advanced metrics
+    console.log('Calculating advanced metrics...');
     const sleepScore = calculateSleepScore(formData);
-    const sleepPhases = analyzeSleepPhases(formData);
-    const sleepEfficiency = calculateSleepEfficiency(formData);
-    const recommendations = generateDetailedRecommendations(formData, prediction, sleepScore);
+    console.log('Sleep score calculated:', sleepScore);
     
-    return {
+    const sleepPhases = analyzeSleepPhases(formData);
+    console.log('Sleep phases calculated:', sleepPhases);
+    
+    const sleepEfficiency = calculateSleepEfficiency(formData);
+    console.log('Sleep efficiency calculated:', sleepEfficiency);
+    
+    const recommendations = generateDetailedRecommendations(formData, prediction, sleepScore);
+    console.log('Recommendations calculated:', recommendations);
+    
+    const result = {
         prediction,
         confidence,
         probabilities,
@@ -258,6 +266,9 @@ function generatePrediction() {
         recommendations,
         sleepEfficiency
     };
+    
+    console.log('Final prediction result:', result);
+    return result;
 }
 
 function generateSuggestions(data, prediction) {
