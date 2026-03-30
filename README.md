@@ -131,16 +131,16 @@ npx serve .
 
 ```
 sleep-quality-predictor/
-├── index.html              # Main application page
+├── index.html              # Main application page with advanced UI
 ├── static/
 │   ├── css/
-│   │   └── style.css      # Responsive styling
+│   │   └── style.css      # Responsive styling with animations
 │   └── js/
-│       └── static-script.js  # Advanced JavaScript logic
-├── app.py                 # Local development server
-├── requirements.txt        # Python dependencies
-├── netlify.toml           # Netlify configuration
-├── _redirects             # Netlify routing
+│       └── static-script.js  # Advanced JavaScript with ML algorithms
+├── app.py                 # Local development server with ML models
+├── requirements.txt        # Python dependencies for ML libraries
+├── netlify.toml           # Netlify deployment configuration
+├── _redirects             # Netlify routing rules
 └── README.md              # Project documentation
 ```
 
