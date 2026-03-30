@@ -100,6 +100,18 @@ function initApp() {
         clearHistoryBtn.addEventListener('click', clearHistory);
     }
     
+    // Add export history button listener
+    const exportHistoryBtn = document.getElementById('exportHistoryBtn');
+    if (exportHistoryBtn) {
+        exportHistoryBtn.addEventListener('click', exportHistory);
+    }
+    
+    // Add insights button listener
+    const insightsBtn = document.getElementById('insightsBtn');
+    if (insightsBtn) {
+        insightsBtn.addEventListener('click', generateInsights);
+    }
+    
     console.log('Event listeners attached!');
 }
 
@@ -441,10 +453,17 @@ function resetForm() {
     // Clear results
     resultsSection.style.display = 'none';
     
-    // Reset sleep duration calculation
+    // Reset sleep duration calculation (clear readonly field)
     const sleepDurationInput = document.getElementById('sleep_duration');
     if (sleepDurationInput) {
-        sleepDurationInput.value = '';
+        sleepDurationInput.value = '7'; // Reset to default value
+    }
+    
+    // Reset stress slider display
+    const stressValue = document.getElementById('stressValue');
+    const stressSlider = document.getElementById('stress_level');
+    if (stressValue && stressSlider) {
+        stressValue.textContent = stressSlider.value;
     }
     
     console.log('Form reset complete');
@@ -533,12 +552,233 @@ function loadHistory() {
                 const durationCell = row.insertCell();
                 durationCell.textContent = entry.sleepDuration + ' hours';
                 
+                // Add click handler for row to show detailed graph
+                row.style.cursor = 'pointer';
+                row.addEventListener('click', () => showDetailedGraph(entry, index));
+                
                 historyTableBody.appendChild(row);
             });
+            
+            // Update trend chart
+            updateTrendChart(history);
         }
     }
     
     console.log('History loaded:', history);
+}
+
+// Show detailed graph for a specific prediction
+function showDetailedGraph(entry, index) {
+    console.log('Showing detailed graph for entry:', entry);
+    
+    // Create modal or expand existing graph section
+    const graphSection = document.getElementById('graphSection');
+    if (graphSection) {
+        graphSection.style.display = 'block';
+        graphSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Create detailed chart
+        createDetailedChart(entry, index);
+    }
+}
+
+// Create detailed chart for individual prediction
+function createDetailedChart(entry, index) {
+    const canvas = document.getElementById('detailedChart');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    
+    // Clear previous chart
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Create new chart
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Sleep Score', 'Confidence', 'Duration Quality', 'Overall Health'],
+            datasets: [{
+                label: `Prediction #${index + 1} - ${entry.prediction}`,
+                data: [
+                    entry.score,
+                    entry.confidence,
+                    Math.min(100, entry.sleepDuration * 10),
+                    (entry.score + entry.confidence) / 2
+                ],
+                backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                borderColor: 'rgba(102, 126, 234, 1)',
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(102, 126, 234, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(102, 126, 234, 1)'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: `Detailed Analysis - ${entry.date}`
+                },
+                legend: {
+                    display: true
+                }
+            },
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        stepSize: 20
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Update trend chart with history data
+function updateTrendChart(history) {
+    const canvas = document.getElementById('trendChart');
+    if (!canvas || history.length === 0) return;
+    
+    const ctx = canvas.getContext('2d');
+    
+    // Clear previous chart
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Prepare data
+    const labels = history.map((_, index) => `Prediction ${index + 1}`);
+    const scores = history.map(entry => entry.score);
+    const confidence = history.map(entry => entry.confidence);
+    
+    // Create new chart
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Sleep Score',
+                data: scores,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderWidth: 2,
+                tension: 0.4
+            }, {
+                label: 'Confidence',
+                data: confidence,
+                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderWidth: 2,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Sleep Quality Trends Over Time'
+                },
+                legend: {
+                    display: true
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: {
+                        display: true,
+                        text: 'Score / Confidence (%)'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Predictions'
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Export history data
+function exportHistory() {
+    console.log('Exporting history...');
+    
+    const history = JSON.parse(localStorage.getItem('sleepHistory')) || [];
+    
+    if (history.length === 0) {
+        alert('No history data to export!');
+        return;
+    }
+    
+    // Create CSV content
+    const headers = ['Date', 'Prediction', 'Confidence', 'Sleep Score', 'Sleep Duration'];
+    const csvContent = [
+        headers.join(','),
+        ...history.map(entry => [
+            `"${entry.date}"`,
+            entry.prediction,
+            entry.confidence + '%',
+            entry.score,
+            entry.sleepDuration + ' hours'
+        ].join(','))
+    ].join('\n');
+    
+    // Create download link
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `sleep_quality_history_${new Date().toISOString().split('T')[0]}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+    
+    console.log('History exported successfully');
+}
+
+// Generate insights from history
+function generateInsights() {
+    console.log('Generating insights...');
+    
+    const history = JSON.parse(localStorage.getItem('sleepHistory')) || [];
+    
+    if (history.length < 2) {
+        alert('Need at least 2 predictions to generate insights!');
+        return;
+    }
+    
+    // Calculate statistics
+    const avgScore = history.reduce((sum, entry) => sum + entry.score, 0) / history.length;
+    const avgConfidence = history.reduce((sum, entry) => sum + entry.confidence, 0) / history.length;
+    const avgDuration = history.reduce((sum, entry) => sum + parseFloat(entry.sleepDuration), 0) / history.length;
+    
+    // Find most common prediction
+    const predictions = history.map(entry => entry.prediction);
+    const mostCommon = predictions.sort((a,b) =>
+        predictions.filter(v => v===a).length - predictions.filter(v => v===b).length
+    ).pop();
+    
+    // Generate insights
+    const insights = [
+        `📊 Average Sleep Score: ${Math.round(avgScore)}/100`,
+        `🎯 Average Confidence: ${Math.round(avgConfidence)}%`,
+        `⏰ Average Sleep Duration: ${avgDuration.toFixed(1)} hours`,
+        `🏆 Most Common Prediction: ${mostCommon}`,
+        `📈 Total Predictions Made: ${history.length}`
+    ];
+    
+    // Show insights in modal or alert
+    const insightsText = insights.join('\n');
+    alert(`🌙 Sleep Quality Insights:\n\n${insightsText}\n\n💡 Keep tracking to improve your sleep quality!`);
+    
+    console.log('Insights generated:', insights);
 }
 
 // Clear history

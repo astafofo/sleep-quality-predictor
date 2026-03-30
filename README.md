@@ -1,105 +1,102 @@
-# Sleep Quality Predictor - Advanced ML System
+# Sleep Quality Predictor - Advanced ML Analysis System
 
-A sophisticated Machine Learning-based web application that analyzes lifestyle and physiological factors to classify sleep quality as **Good, Average, or Poor** with comprehensive insights and personalized recommendations.
+A sophisticated Machine Learning-based web application that analyzes lifestyle and physiological factors to classify sleep quality with comprehensive insights, interactive graphs, and personalized recommendations.
 
 ## Live Demo
 
 **Deployed on Netlify:** [https://sleep-quality-predictor.netlify.app](https://sleep-quality-predictor.netlify.app)
 
+**GitHub Repository:** [https://github.com/astafofo/sleep-quality-predictor](https://github.com/astafofo/sleep-quality-predictor)
+
 ## Core Features
 
-### Input Analysis
-- **Sleep Duration**: Auto-calculated from bedtime/wake-up time
-- **Exercise Tracking**: Daily physical activity monitoring
-- **Screen Time**: Digital device usage assessment
-- **Stress Evaluation**: 0-10 scale stress level measurement
-- **Caffeine Monitoring**: Intake level analysis (None/Low/Medium/High)
-- **Mood Assessment**: Emotional state before sleep
-- **Sleep Interruptions**: Night awakening frequency
-- **Time Management**: Bedtime consistency evaluation
+### Advanced Prediction System
+- **Sleep Quality Classification**: Good/Average/Poor with confidence scoring
+- **Comprehensive Sleep Score**: 0-100 point evaluation system
+- **Sleep Phase Analysis**: Deep, REM, Light, and Awake phase breakdown
+- **Sleep Efficiency Calculation**: Optimal sleep utilization metrics
+- **Probability Distribution**: All category probabilities with visual charts
+- **Personalized Recommendations**: AI-generated sleep improvement suggestions
 
-### ML Pipeline
-1. **Data Preprocessing**: Time conversion, categorical encoding, feature scaling
-2. **Model Training**: 4 algorithms trained on synthetic sleep dataset
-3. **Model Selection**: Automatic accuracy-based best model identification
-4. **Prediction**: Real-time classification with probability distributions
-5. **Insight Generation**: Feature importance and confidence scoring
+### Interactive Data Visualization
+- **Radar Charts**: Detailed individual prediction analysis
+- **Trend Analysis**: Sleep quality patterns over time
+- **Interactive History**: Click-to-view detailed graphs for each prediction
+- **Professional Charts**: Chart.js powered visualizations
+- **Responsive Graphs**: Adaptive sizing for all devices
 
-### Output Features
-- **Quality Classification**: Good/Average/Poor sleep quality prediction
-- **Confidence Scoring**: ML model confidence percentage
-- **Sleep Score**: Comprehensive 0-100 point evaluation
-- **Phase Analysis**: Sleep architecture breakdown
-- **Efficiency Metrics**: Sleep efficiency calculation
-- **Probability Distribution**: All category probabilities
-- **Model Information**: Algorithm used and accuracy metrics
+### History Management
+- **Prediction History**: Store and review past predictions
+- **Data Export**: Download history as CSV files
+- **Insights Generation**: Statistical analysis of sleep patterns
+- **Persistent Storage**: LocalStorage for data persistence
+- **Smart Management**: Maximum 10 entries with cleanup options
+
+### Professional UI/UX
+- **Modern Design**: Glassmorphism with gradient backgrounds
+- **Responsive Layout**: Mobile-first design approach
+- **Interactive Elements**: Hover effects and smooth animations
+- **Professional Color Scheme**: Consistent blue/purple gradients
+- **Accessibility**: Semantic HTML5 with ARIA labels
 
 ## Technical Architecture
 
 ### Frontend Technology Stack
 - **HTML5**: Semantic markup with accessibility features
-- **CSS3**: Modern styling with gradients and animations
-- **JavaScript ES6+**: Modern JavaScript with async/await
-- **Chart.js**: Data visualization and trend analysis
+- **CSS3**: Modern styling with gradients, animations, and glassmorphism
+- **JavaScript ES6+**: Modern JavaScript with async/await patterns
+- **Chart.js**: Interactive data visualization and trend analysis
 - **Poppins Font**: Modern typography from Google Fonts
 - **Font Awesome**: Professional icon library
 
-### **Backend Technology Stack**
-- **Python**: Core programming language
-- **Flask**: Lightweight web framework
-- **scikit-learn**: Machine Learning library
-- **pandas**: Data manipulation and analysis
-- **NumPy**: Numerical computing
-- **Multiple ML Algorithms**: Random Forest, Logistic Regression, Decision Tree, SVM
-
-### Data Science Features
-- **Synthetic Data Generation**: Realistic sleep dataset creation
+### Data Processing
+- **Real-time Calculations**: Sleep duration auto-calculation
 - **Feature Engineering**: Time-based and categorical encoding
-- **Model Evaluation**: Accuracy scoring and performance metrics
-- **Cross-Validation**: Robust model testing methodology
-- **Probability Calibration**: Confidence interval estimation
+- **ML Algorithms**: Multiple prediction algorithms with intelligent selection
+- **Confidence Scoring**: Probability-based prediction reliability
+- **Local Storage**: Client-side data persistence
 
 ## Responsive Design
 
 ### Desktop Experience
-- **Grid Layout**: Optimized for large screens
-- **Hover Effects**: Interactive card animations
-- **Full Charts**: Detailed data visualization
-- **Comprehensive Forms**: All input controls visible
+- **Grid Layout**: Optimized for large screens (1200px+)
+- **Interactive Charts**: Full-size data visualization
+- **Hover Effects**: Professional card animations
+- **Comprehensive Forms**: All input controls visible and accessible
 
 ### Mobile Experience
-- **Touch Controls**: Mobile-optimized inputs
-- **Compact Layout**: Stacked card design
+- **Touch Controls**: Mobile-optimized input elements
+- **Compact Layout**: Stacked card design for small screens
 - **Responsive Charts**: Adaptive visualization sizing
-- **Thumb-Friendly**: Large tap targets for mobile
+- **Thumb-Friendly**: Large tap targets for mobile interaction
 
-## Professional UI/UX
+## Input Analysis
 
-### Color Palette
-- **Primary**: Deep blues (#667eea) and purples (#764ba2)
-- **Success**: Green gradients (#4ade80 to #22c55e)
-- **Warning**: Yellow gradients (#fbbf24 to #f59e0b)
-- **Error**: Red gradients (#f87171 to #ef4444)
-- **Neutral**: Grays (#f7fafc to #2d3748)
+### Lifestyle Factors
+- **Sleep Duration**: Auto-calculated from bedtime/wake-up time
+- **Exercise Tracking**: Daily physical activity monitoring (0-180 minutes)
+- **Screen Time**: Digital device usage assessment (0-480 minutes)
+- **Stress Evaluation**: 0-10 scale stress level measurement
+- **Caffeine Monitoring**: Intake level analysis (None/Low/Medium/High)
+- **Mood Assessment**: Emotional state before sleep
+- **Sleep Interruptions**: Night awakening frequency (0-5+ times)
+- **Time Management**: Bedtime consistency evaluation
 
-### Typography
-- **Font Family**: Poppins (Google Fonts)
-- **Weights**: 300 (light), 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
-- **Responsive**: Scales perfectly across devices
-
-### Iconography
-- **Sleep**: Moon (🌙) and bed (🛏️) icons
-- **Health**: Heart (❤️) and brain (🧠) icons
-- **Activity**: Running (🏃) and exercise (💪) icons
-- **Technology**: Chart (📊) and analytics (📈) icons
+### Output Features
+- **Quality Classification**: Good/Average/Poor sleep quality prediction
+- **Confidence Scoring**: ML model confidence percentage
+- **Sleep Score**: Comprehensive 0-100 point evaluation
+- **Phase Analysis**: Sleep architecture breakdown (Deep/REM/Light/Awake)
+- **Efficiency Metrics**: Sleep efficiency calculation
+- **Probability Distribution**: All category probabilities
+- **Model Information**: Algorithm used and accuracy metrics
 
 ## Development Setup
 
 ### Prerequisites
-- **Python 3.9+**: Core programming language
-- **Node.js 18+**: Frontend tooling
-- **Git**: Version control
 - **Modern Browser**: Chrome, Firefox, Safari, Edge
+- **Git**: Version control for cloning repository
+- **Text Editor**: VS Code, Sublime Text, or similar
 
 ### Local Development
 ```bash
@@ -107,18 +104,7 @@ A sophisticated Machine Learning-based web application that analyzes lifestyle a
 git clone https://github.com/astafofo/sleep-quality-predictor.git
 cd sleep-quality-predictor
 
-# Install Python dependencies
-pip install -r requirements.txt
-
-# Run local server
-python app.py
-
-# Open browser to http://localhost:5000
-```
-
-### **Static Development**
-```bash
-# Serve static files
+# Serve static files (Python)
 python -m http.server 8000
 
 # Or use Node.js
@@ -127,127 +113,12 @@ npx serve .
 # Open browser to http://localhost:8000
 ```
 
-## Project Structure
-
+### Deployment
+```bash
+# Deploy to Netlify (automatic on git push)
+# Or deploy to GitHub Pages
+# Static site - no build process required
 ```
-sleep-quality-predictor/
-├── index.html              # Main application page with advanced UI
-├── static/
-│   ├── css/
-│   │   └── style.css      # Responsive styling with animations
-│   └── js/
-│       └── static-script.js  # Advanced JavaScript with ML algorithms
-├── app.py                 # Local development server with ML models
-├── requirements.txt        # Python dependencies for ML libraries
-├── netlify.toml           # Netlify deployment configuration
-├── _redirects             # Netlify routing rules
-└── README.md              # Project documentation
-```
-
-## Research Applications
-
-### Computer Science Concepts
-- **Machine Learning**: Supervised learning algorithms
-- **Data Preprocessing**: Feature engineering and scaling
-- **Model Evaluation**: Accuracy metrics and validation
-- **Web Development**: Full-stack application architecture
-- **UI/UX Design**: User interface and experience principles
-
-### Data Science Skills
-- **Feature Engineering**: Time-based and categorical encoding
-- **Model Selection**: Algorithm comparison and optimization
-- **Probability Theory**: Confidence intervals and distributions
-- **Data Visualization**: Chart.js implementation
-- **Statistical Analysis**: Correlation and feature importance
-
-### Software Engineering
-- **Version Control**: Git workflow and collaboration
-- **Frontend Development**: Modern JavaScript and CSS
-- **Backend Development**: Python Flask framework
-- **API Design**: RESTful API implementation
-- **Deployment**: Static site hosting and CI/CD
-
-## 🔬 **Research Applications**
-
-### **Sleep Science**
-- **Circadian Rhythms**: Biological sleep patterns
-- **Sleep Architecture**: Phase distribution analysis
-- **Lifestyle Factors**: Impact on sleep quality
-- **Health Monitoring**: Long-term sleep tracking
-- **Intervention Studies**: Recommendation effectiveness
-
-### **Healthcare Analytics**
-- **Predictive Modeling**: Risk assessment algorithms
-- **Patient Monitoring**: Sleep quality tracking
-- **Treatment Planning**: Personalized interventions
-- **Outcome Measurement**: Progress evaluation
-- **Population Health**: Sleep pattern analysis
-
-## Future Enhancements
-
-### Advanced Features
-- **Wearable Integration**: Fitbit, Apple Watch data sync
-- **AI Chatbot**: Conversational sleep assistant
-- **Mobile App**: Native iOS/Android applications
-- **Voice Interface**: Alexa/Google Assistant integration
-- **Social Features**: Community challenges and sharing
-
-### Data Science Improvements
-- **Real Datasets**: Integration with sleep research data
-- **Deep Learning**: Neural networks for pattern recognition
-- **Time Series Analysis**: Longitudinal sleep tracking
-- **Anomaly Detection**: Sleep disorder identification
-- **Personalization**: Individual model adaptation
-
-## Contributing
-
-### Development Workflow
-1. **Fork Repository**: Create your own copy
-2. **Feature Branch**: Create branch for new features
-3. **Testing**: Comprehensive testing and validation
-4. **Documentation**: Update README and code comments
-5. **Pull Request**: Submit changes for review
-
-### Code Standards
-- **Python**: PEP 8 compliance
-- **JavaScript**: ES6+ standards
-- **CSS**: BEM methodology
-- **HTML5**: Semantic markup
-- **Documentation**: Clear comments and README
-
-## License
-
-This project is open source and available under the **MIT License**.
-
-## Learning Outcomes
-
-### Technical Skills
-- **Machine Learning**: Algorithm implementation and evaluation
-- **Web Development**: Full-stack application creation
-- **Data Science**: Analysis and visualization techniques
-- **Software Engineering**: Best practices and deployment
-
-### Domain Knowledge
-- **Sleep Science**: Understanding sleep quality factors
-- **Health Analytics**: Quantitative health assessment
-- **User Experience**: Interface design and usability
-- **Project Management**: Complete project lifecycle
-
----
-
-## Project Highlights
-
-- **ML-Powered**: Multiple algorithms with intelligent selection
-- **Comprehensive**: Sleep scoring, phases, and efficiency analysis
-- **Intelligent**: Personalized recommendations system
-- **Professional**: Modern UI with responsive design
-- **Deployed**: Live demo with global accessibility
-
----
-
-**Built with passion for better sleep health!**
-
-*Deployed on Netlify • Powered by Advanced Algorithms • Designed for Professional Use*
 
 ## Project Structure
 
@@ -266,150 +137,122 @@ sleep-quality-predictor/
 └── package.json            # Project metadata
 ```
 
-## Installation & Setup
+## Design System
 
-1. **Clone or download** the project files
-2. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. **Run the application**:
-   ```bash
-   python app.py
-   ```
-4. **Open in browser**: Navigate to `http://localhost:5000`
+### Color Palette
+- **Primary**: Linear gradient #667eea to #764ba2
+- **Success**: Linear gradient #4ade80 to #22c55e
+- **Info**: Linear gradient #06b6d4 to #0891b2
+- **Warning**: Linear gradient #fbbf24 to #f59e0b
+- **Error**: Linear gradient #f87171 to #ef4444
+- **Neutral**: Grays from #f7fafc to #2d3748
 
-## How It Works
+### Typography
+- **Font Family**: Poppins (Google Fonts)
+- **Weights**: 300 (light), 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
+- **Responsive**: Scales perfectly across devices
+- **Accessibility**: High contrast ratios for readability
 
-### Data Collection
-The application collects the following lifestyle factors:
-- **Sleep Duration** (3-12 hours)
-- **Exercise Duration** (0-180 minutes)
-- **Screen Time** (0-480 minutes)
-- **Stress Level** (0-10 scale)
-- **Caffeine Intake** (None/Low/Medium/High)
-- **Daily Mood** (Excellent/Good/Fair/Poor)
-- **Sleep Interruptions** (0-5+ times per night)
-
-### Machine Learning Model
-- **Algorithm**: Random Forest Classifier
-- **Training Data**: 1000 synthetic samples based on typical sleep patterns
-- **Features**: 7 lifestyle and physiological factors
-- **Output**: Sleep quality classification (Good/Average/Poor)
-- **Confidence**: Probability scores for each prediction
-
-### Prediction Process
-1. User inputs lifestyle data through the form
-2. Data is preprocessed and scaled
-3. ML model predicts sleep quality
-4. Confidence scores and personalized suggestions are generated
-5. Results displayed with visual indicators
-
-## API Endpoints
-
-### `POST /predict`
-**Request Body**:
-```json
-{
-  "sleep_duration": 7.5,
-  "exercise_duration": 30,
-  "screen_time": 120,
-  "stress_level": 5,
-  "caffeine_intake": "Low",
-  "mood": "Good",
-  "sleep_interruptions": 1
-}
-```
-
-**Response**:
-```json
-{
-  "prediction": "Good",
-  "confidence": 0.85,
-  "suggestions": [
-    "Great job! Maintain your current sleep habits",
-    "Consider reducing screen time by 30 minutes before bed"
-  ],
-  "probabilities": {
-    "Good": 0.85,
-    "Average": 0.12,
-    "Poor": 0.03
-  }
-}
-```
-
-### `GET /health`
-Returns application status and model training state.
+### Interactive Elements
+- **Buttons**: Gradient backgrounds with hover effects
+- **Cards**: Glassmorphism with backdrop blur
+- **Forms**: Modern input styling with validation
+- **Charts**: Interactive and responsive visualizations
 
 ## Features in Detail
 
 ### Input Interface
-- **Numeric fields** with validation for sleep duration, exercise, and screen time
-- **Interactive slider** for stress level (0-10)
-- **Dropdown menus** for caffeine intake and mood selection
-- **Radio buttons** for sleep interruption frequency
-- **Real-time validation** with visual feedback
+- **Auto-calculated Fields**: Sleep duration from bedtime/wake-up
+- **Interactive Slider**: Stress level with real-time display
+- **Dropdown Menus**: Caffeine intake and mood selection
+- **Radio Buttons**: Sleep interruption frequency
+- **Real-time Validation**: Visual feedback for all inputs
+- **Responsive Design**: Mobile-optimized controls
 
 ### Output Display
-- **Quality badge** with color-coded prediction (green/yellow/red)
-- **Confidence meter** showing prediction reliability
-- **Probability distribution** for all three categories
-- **Personalized suggestions** based on input analysis
-- **Smooth animations** and transitions
+- **Quality Badge**: Color-coded prediction (green/yellow/red)
+- **Confidence Meter**: Visual prediction reliability indicator
+- **Sleep Score Circle**: 0-100 point circular display
+- **Phase Bars**: Sleep architecture visualization
+- **Efficiency Gauge**: Sleep utilization meter
+- **Probability Charts**: All category probabilities
+- **Suggestions List**: Personalized recommendations
 
-### Responsive Design
-- **Mobile-first approach** with breakpoints at 768px and 480px
-- **Flexible grid layout** that adapts to screen size
-- **Touch-friendly controls** for mobile devices
-- **Optimized typography** for readability
+### History & Analytics
+- **Interactive Table**: Click rows for detailed analysis
+- **Trend Charts**: Line graphs for sleep patterns
+- **Radar Charts**: Individual prediction breakdown
+- **Export Functionality**: CSV download for data analysis
+- **Insights Generation**: Statistical summaries
+- **Clear History**: Option to reset all data
 
-## Model Performance
+## Use Cases
 
-The Random Forest model achieves approximately **85-90% accuracy** on synthetic test data, with strong feature importance for:
-1. Sleep duration
-2. Stress level
-3. Exercise duration
-4. Screen time
+### Personal Health Monitoring
+- **Daily Tracking**: Monitor sleep quality trends
+- **Lifestyle Analysis**: Understand factors affecting sleep
+- **Improvement Planning**: Get personalized recommendations
+- **Progress Measurement**: Track sleep quality over time
 
-## Customization
+### Research & Education
+- **Sleep Science**: Understanding sleep quality factors
+- **Data Visualization**: Learning chart interpretation
+- **ML Concepts**: Understanding prediction algorithms
+- **Web Development**: Modern frontend techniques
 
-### Adding New Features
-To add new lifestyle factors:
-1. Update the `generate_synthetic_data()` method in `app.py`
-2. Add corresponding form fields in `index.html`
-3. Update the JavaScript validation in `script.js`
-4. Retrain the model
+## Future Enhancements
 
-### Styling Changes
-- Modify `static/css/style.css` for color schemes and layout
-- Update font preferences in the HTML head section
-- Adjust responsive breakpoints in media queries
-
-### Model Tuning
-- Experiment with different algorithms (Logistic Regression, SVM, etc.)
-- Adjust hyperparameters in the RandomForestClassifier
-- Add real sleep data for improved accuracy
+### Advanced Features
+- **Wearable Integration**: Fitbit, Apple Watch data sync
+- **AI Chatbot**: Conversational sleep assistant
+- **Mobile App**: Native iOS/Android applications
+- **Deep Learning**: Neural networks for pattern recognition
+- **Time Series Analysis**: Longitudinal sleep tracking
+- **Anomaly Detection**: Sleep disorder identification
+- **Personalization**: Individual model adaptation
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+### Development Workflow
+1. **Fork Repository**: Create your own copy
+2. **Feature Branch**: Create branch for new features
+3. **Testing**: Comprehensive testing and validation
+4. **Documentation**: Update README and code comments
+5. **Pull Request**: Submit changes for review
+
+### Code Standards
+- **JavaScript**: ES6+ standards with proper documentation
+- **CSS**: BEM methodology with responsive design
+- **HTML5**: Semantic markup with accessibility
+- **Git**: Clear commit messages and proper branching
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is open source and available under **MIT License**.
 
-## Support
+## Project Highlights
 
-For issues or questions:
-1. Check the console for error messages
-2. Verify all dependencies are installed
-3. Ensure the Flask server is running on port 5000
-4. Test with different input combinations
+- **ML-Powered**: Advanced algorithms with intelligent selection
+- **Interactive**: Click-to-view detailed analysis for each prediction
+- **Professional**: Modern UI with glassmorphism design
+- **Comprehensive**: Sleep scoring, phases, and efficiency analysis
+- **Data-Driven**: Export functionality and insights generation
+- **Responsive**: Perfect adaptation across all devices
+- **Deployed**: Live demo with global accessibility
 
 ---
 
-**Built with passion for better sleep health!**
+## Built with Passion for Better Sleep Health
+
+**Deployed on Netlify • Powered by Advanced Algorithms • Designed for Professional Use**
+
+---
+
+### Support & Contact
+
+For issues, questions, or contributions:
+- **GitHub Issues**: [Create an issue](https://github.com/astafofo/sleep-quality-predictor/issues)
+- **Live Demo**: [Test the application](https://sleep-quality-predictor.netlify.app)
+- **Documentation**: Review this README for detailed information
+
+**Start tracking your sleep quality today!** 
