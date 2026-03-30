@@ -21,7 +21,7 @@ let sleepForm, predictBtn, resultsSection, loadingOverlay;
 let qualityBadge, predictionText, confidenceBar, confidenceText;
 let modelUsed, modelAccuracy, suggestionsList, probabilityBars;
 let sleepScoreValue, deepSleepPhase, remSleepPhase, lightSleepPhase, awakePhase;
-let efficiencyBar, efficiencyText;
+let efficiencyBar, efficiencyText, historySection;
 
 // Initialize everything when page loads
 function initApp() {
@@ -32,7 +32,6 @@ function initApp() {
     predictBtn = document.getElementById('predictBtn');
     resultsSection = document.getElementById('resultsSection');
     loadingOverlay = document.getElementById('loadingOverlay');
-    
     qualityBadge = document.getElementById('qualityBadge');
     predictionText = document.getElementById('predictionText');
     confidenceBar = document.getElementById('confidenceBar');
@@ -48,6 +47,7 @@ function initApp() {
     awakePhase = document.getElementById('awakePhase');
     efficiencyBar = document.getElementById('efficiencyBar');
     efficiencyText = document.getElementById('efficiencyText');
+    historySection = document.getElementById('historySection');
     
     // Check if elements exist
     if (!sleepForm) {
