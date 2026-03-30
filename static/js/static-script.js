@@ -114,6 +114,7 @@ function handleFormSubmit(e) {
     console.log('Form submitted!');
     e.preventDefault();
     
+    console.log('About to validate form...');
     if (!validateForm()) {
         console.log('Form validation failed');
         return;
@@ -122,8 +123,10 @@ function handleFormSubmit(e) {
     console.log('Form validation passed');
     showLoading();
     
+    console.log('About to start timeout...');
     // Simulate processing time
     setTimeout(() => {
+        console.log('Timeout triggered, hiding loading...');
         hideLoading();
         console.log('Generating prediction...');
         const result = generatePrediction();
@@ -519,18 +522,24 @@ function getFormData() {
 }
 
 function validateForm() {
+    console.log('Validating form...');
     const requiredFields = sleepForm.querySelectorAll('[required]');
+    console.log('Found required fields:', requiredFields.length);
+    
     let isValid = true;
     
     requiredFields.forEach(field => {
+        console.log('Checking field:', field.name, 'value:', field.value);
         if (!field.value) {
             isValid = false;
             field.classList.add('error');
+            console.log('Field validation failed:', field.name);
         } else {
             field.classList.remove('error');
         }
     });
     
+    console.log('Form validation result:', isValid);
     return isValid;
 }
 
