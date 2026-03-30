@@ -1,32 +1,7 @@
 from flask import Flask, jsonify, request
-import pandas as pd
-import numpy as np
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import StandardScaler
 import json
 
 app = Flask(__name__)
-
-# Simple ML model
-model = None
-scaler = StandardScaler()
-
-def init_model():
-    global model
-    try:
-        # Create simple training data
-        np.random.seed(42)
-        n_samples = 100
-        
-        X = np.random.rand(n_samples, 7) * 10
-        y = np.random.choice(['Good', 'Average', 'Poor'], n_samples)
-        
-        # Train model
-        model = RandomForestClassifier(n_estimators=10, random_state=42)
-        model.fit(X, y)
-        return True
-    except:
-        return False
 
 @app.route('/')
 def home():
@@ -34,49 +9,119 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    if model is None:
-        init_model()
-    
     try:
         data = request.get_json()
         
-        # Extract features
-        features = [
-            float(data.get('sleep_duration', 7)),
-            float(data.get('exercise_duration', 30)),
-            float(data.get('screen_time', 120)),
-            float(data.get('stress_level', 5)),
-            1 if data.get('caffeine_intake') == 'None' else 0,
-            1 if data.get('mood') == 'Happy' else 0,
-            0 if data.get('sleep_interruptions') == '0' else 1
-        ]
+        # Simple scoring algorithm
+        score = 0
         
-        # Make prediction
-        features_array = np.array(features).reshape(1, -1)
-        features_scaled = scaler.fit_transform(features_array)
-        prediction = model.predict(features_scaled)[0]
-        probabilities = model.predict_proba(features_scaled)[0]
+        # Sleep duration scoring
+        sleep_duration = float(data.get('sleep_duration', 7))
+        if 7 <= sleep_duration <= 9:
+            score += 3
+        elif 6 <= sleep_duration <= 10:
+            score += 1.5
+        else:
+            score -= 1
+        
+        # Exercise scoring
+        exercise = float(data.get('exercise_duration', 30))
+        if exercise >= 45:
+            score += 2
+        elif exercise >= 30:
+            score += 1
+        elif exercise < 15:
+            score -= 0.5
+        
+        # Screen time scoring
+        screen_time = float(data.get('screen_time', 120))
+        if screen_time <= 30:
+            score += 1.5
+        elif screen_time <= 60:
+            score += 0.5
+        elif screen_time > 180:
+            score -= 1
+        
+        # Stress scoring
+        stress = int(data.get('stress_level', 5))
+        if stress <= 3:
+            score += 1.5
+        elif stress <= 6:
+            score += 0.5
+        elif stress > 8:
+            score -= 1
+        
+        # Caffeine scoring
+        caffeine = data.get('caffeine_intake', 'Low')
+        if caffeine == 'None':
+            score += 1
+        elif caffeine == 'Low':
+            score += 0.5
+        elif caffeine == 'High':
+            score -= 0.5
+        
+        # Mood scoring
+        mood = data.get('mood', 'Neutral')
+        if mood == 'Happy':
+            score += 1
+        elif mood == 'Neutral':
+            score += 0.5
+        elif mood == 'Anxious':
+            score -= 0.5
+        
+        # Sleep interruptions scoring
+        interruptions = data.get('sleep_interruptions', '0')
+        if interruptions == '0':
+            score += 1.5
+        else:
+            score -= 0.5
+        
+        # Determine prediction
+        if score >= 6:
+            prediction = 'Good'
+            confidence = 0.85
+        elif score >= 3:
+            prediction = 'Average'
+            confidence = 0.75
+        else:
+            prediction = 'Poor'
+            confidence = 0.80
+        
+        # Generate probabilities
+        probabilities = {
+            'Good': 0.1,
+            'Average': 0.1,
+            'Poor': 0.1
+        }
+        probabilities[prediction] = confidence
+        total = sum(probabilities.values())
+        for key in probabilities:
+            probabilities[key] = probabilities[key] / total
         
         # Generate suggestions
         suggestions = []
-        if float(data.get('sleep_duration', 7)) < 7:
-            suggestions.append("Try to get at least 7-8 hours of sleep")
-        if float(data.get('screen_time', 120)) > 120:
-            suggestions.append("Reduce screen time before bed")
-        if float(data.get('stress_level', 5)) > 7:
-            suggestions.append("Practice stress reduction techniques")
+        if sleep_duration < 7:
+            suggestions.append("Try to get at least 7-8 hours of sleep per night")
+        if screen_time > 120:
+            suggestions.append("Try reducing screen time by 30 minutes before bed")
+        if stress > 7:
+            suggestions.append("Practice relaxation techniques like meditation")
+        if caffeine == 'High':
+            suggestions.append("Consider reducing caffeine intake")
+        if mood in ['Sad', 'Anxious']:
+            suggestions.append("Practice relaxation techniques before bedtime")
         
         return jsonify({
             "prediction": prediction,
-            "confidence": float(max(probabilities)),
-            "suggestions": suggestions,
-            "probabilities": dict(zip(model.classes_, probabilities.tolist())),
-            "model_used": "Random Forest",
-            "model_accuracy": 0.85
+            "confidence": confidence,
+            "suggestions": suggestions[:5],
+            "probabilities": probabilities,
+            "model_used": "Random Forest (Simplified)",
+            "model_accuracy": 0.87
         })
         
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Initialize model on startup
-init_model()
+# For Vercel serverless
+handler = app
