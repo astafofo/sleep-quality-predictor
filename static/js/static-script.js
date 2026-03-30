@@ -550,25 +550,34 @@ function displayResults(data) {
     
     // NEW: Display sleep score
     if (data.score !== undefined) {
-        document.getElementById('sleepScoreValue').textContent = data.score;
+        const scoreElement = document.getElementById('sleepScoreValue');
+        if (scoreElement) {
+            scoreElement.textContent = data.score;
+            console.log('Updated sleep score:', data.score);
+        }
     }
     
     // NEW: Display sleep phases
     if (data.sleepPhases) {
         displaySleepPhases(data.sleepPhases);
+        console.log('Updated sleep phases:', data.sleepPhases);
     }
     
     // NEW: Display sleep efficiency
     if (data.sleepEfficiency) {
         const efficiencyBar = document.getElementById('efficiencyBar');
         const efficiencyText = document.getElementById('efficiencyText');
-        efficiencyBar.style.width = data.sleepEfficiency + '%';
-        efficiencyText.textContent = data.sleepEfficiency + '%';
+        if (efficiencyBar && efficiencyText) {
+            efficiencyBar.style.width = data.sleepEfficiency + '%';
+            efficiencyText.textContent = data.sleepEfficiency + '%';
+            console.log('Updated sleep efficiency:', data.sleepEfficiency);
+        }
     }
     
     // NEW: Display detailed recommendations
     if (data.recommendations) {
         displayRecommendations(data.recommendations);
+        console.log('Updated recommendations:', data.recommendations);
     }
     
     // Generate and update suggestions
@@ -589,6 +598,8 @@ function displayResults(data) {
     setTimeout(() => {
         resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
+    
+    console.log('Results display completed');
 }
 
 function displaySuggestions(suggestions) {
