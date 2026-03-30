@@ -101,6 +101,7 @@ function handleFormSubmit(e) {
     setTimeout(() => {
         hideLoading();
         const result = generatePrediction();
+        console.log('Prediction result:', result); // Debug log
         displayResults(result);
     }, 1500);
 }
@@ -225,7 +226,7 @@ function generatePrediction() {
         probabilities,
         model_used: 'Advanced Sleep Analysis Engine v3.0',
         model_accuracy: 0.92,
-        score,
+        score: sleepScore,
         sleepPhases,
         recommendations,
         sleepEfficiency
@@ -496,6 +497,8 @@ function validateForm() {
 }
 
 function displayResults(data) {
+    console.log('Displaying results:', data); // Debug log
+    
     // Update prediction
     const prediction = data.prediction.toLowerCase();
     predictionText.textContent = data.prediction;
