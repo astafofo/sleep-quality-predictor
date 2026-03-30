@@ -169,11 +169,83 @@
                         <div class="model-info">
                             <small>Model: <span id="modelUsed">--</span> | Accuracy: <span id="modelAccuracy">--</span>%</small>
                         </div>
+                        <div class="sleep-score">
+                            <h3><i class="fas fa-chart-line"></i> Overall Sleep Score</h3>
+                            <div class="score-circle">
+                                <div class="score-value" id="sleepScoreValue">--</div>
+                                <div class="score-label">out of 100</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sleep-phases-card">
+                    <h3><i class="fas fa-brain"></i> Sleep Phase Analysis</h3>
+                    <div class="phases-container" id="phasesContainer">
+                        <div class="phase-item">
+                            <div class="phase-label">Deep Sleep</div>
+                            <div class="phase-bar">
+                                <div class="phase-fill deep" id="deepSleepPhase"></div>
+                            </div>
+                            <div class="phase-percentage" id="deepSleepPercent">--%</div>
+                        </div>
+                        <div class="phase-item">
+                            <div class="phase-label">REM Sleep</div>
+                            <div class="phase-bar">
+                                <div class="phase-fill rem" id="remSleepPhase"></div>
+                            </div>
+                            <div class="phase-percentage" id="remSleepPercent">--%</div>
+                        </div>
+                        <div class="phase-item">
+                            <div class="phase-label">Light Sleep</div>
+                            <div class="phase-bar">
+                                <div class="phase-fill light" id="lightSleepPhase"></div>
+                            </div>
+                            <div class="phase-percentage" id="lightSleepPercent">--%</div>
+                        </div>
+                        <div class="phase-item">
+                            <div class="phase-label">Awake</div>
+                            <div class="phase-bar">
+                                <div class="phase-fill awake" id="awakePhase"></div>
+                            </div>
+                            <div class="phase-percentage" id="awakePercent">--%</div>
+                        </div>
+                    </div>
+                    <div class="efficiency-meter">
+                        <span><i class="fas fa-tachometer-alt"></i> Sleep Efficiency:</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill efficiency" id="efficiencyBar"></div>
+                        </div>
+                        <span id="efficiencyText">--%</span>
+                    </div>
+                </div>
+
+                <div class="recommendations-card">
+                    <h3><i class="fas fa-clipboard-list"></i> Personalized Recommendations</h3>
+                    <div class="recommendations-container" id="recommendationsContainer">
+                        <div class="recommendation-section">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Immediate Actions</h4>
+                            <ul class="recommendation-list" id="immediateRecommendations">
+                                <!-- Will be populated -->
+                            </ul>
+                        </div>
+                        <div class="recommendation-section">
+                            <h4><i class="fas fa-heartbeat"></i> Lifestyle Changes</h4>
+                            <ul class="recommendation-list" id="lifestyleRecommendations">
+                                <!-- Will be populated -->
+                            </ul>
+                        </div>
+                        <div class="recommendation-section">
+                            <h4><i class="fas fa-calendar-alt"></i> Long-term Goals</h4>
+                            <ul class="recommendation-list" id="longtermRecommendations">
+                                <!-- Will be populated -->
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <div class="suggestions-card">
-                    <h3><i class="fas fa-lightbulb"></i> Personalized Suggestions</h3>
+                    <h3><i class="fas fa-lightbulb"></i> Quick Tips</h3>
                     <ul class="suggestions-list" id="suggestionsList">
                         <!-- Suggestions will be populated here -->
                     </ul>
@@ -222,7 +294,7 @@
 
         <footer class="footer">
             <p>&copy; 2026 Sleep Quality Predictor. Built with advanced algorithms for better sleep health.</p>
-            <p><small>Powered by Machine Learning | <a href="https://github.com/astafofo/sleep-quality-predictor" target="_blank">View Source Code</a></small></p>
+            <p><small>Powered by Astafofo | <a href="https://github.com/astafofo/sleep-quality-predictor" target="_blank">View Source Code</a></small></p>
         </footer>
     </div>
 

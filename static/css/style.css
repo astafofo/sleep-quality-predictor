@@ -382,7 +382,261 @@ body {
     font-weight: 500;
 }
 
-/* Results Section */
+/* Advanced Features Styling */
+.sleep-score {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: white;
+}
+
+.sleep-score h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.score-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.score-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.score-label {
+    font-size: 0.7rem;
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+/* Sleep Phases Card */
+.sleep-phases-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.phases-container {
+    margin-bottom: 20px;
+}
+
+.phase-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.phase-label {
+    min-width: 100px;
+    font-weight: 500;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+.phase-bar {
+    flex: 1;
+    height: 20px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.phase-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.8s ease;
+}
+
+.phase-fill.deep {
+    background: linear-gradient(90deg, #4c51bf, #667eea);
+}
+
+.phase-fill.rem {
+    background: linear-gradient(90deg, #9f7aea, #b794f4);
+}
+
+.phase-fill.light {
+    background: linear-gradient(90deg, #a0aec0, #cbd5e0);
+}
+
+.phase-fill.awake {
+    background: linear-gradient(90deg, #f56565, #fc8181);
+}
+
+.phase-percentage {
+    min-width: 40px;
+    text-align: right;
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 0.9rem;
+}
+
+.efficiency-meter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+.efficiency-meter span {
+    font-weight: 500;
+    color: #4a5568;
+    min-width: 150px;
+}
+
+.progress-fill.efficiency {
+    background: linear-gradient(90deg, #48bb78, #68d391);
+}
+
+/* Recommendations Card */
+.recommendations-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.recommendations-container {
+    display: grid;
+    gap: 20px;
+}
+
+.recommendation-section {
+    padding: 15px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+}
+
+.recommendation-section h4 {
+    margin: 0 0 12px 0;
+    color: #2d3748;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.recommendation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recommendation-list li {
+    padding: 8px 0;
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.recommendation-list li:last-child {
+    border-bottom: none;
+}
+
+.recommendation-list li::before {
+    content: "→";
+    color: #667eea;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Enhanced Results Section */
+.results-section {
+    display: grid;
+    gap: 25px;
+    animation: fadeIn 0.5s ease;
+}
+
+.prediction-card,
+.suggestions-card,
+.probabilities-card,
+.sleep-phases-card,
+.recommendations-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prediction-card:hover,
+.suggestions-card:hover,
+.probabilities-card:hover,
+.sleep-phases-card:hover,
+.recommendations-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile responsiveness for new features */
+@media (max-width: 768px) {
+    .sleep-score h3 {
+        font-size: 1rem;
+    }
+    
+    .score-circle {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .score-value {
+        font-size: 1.4rem;
+    }
+    
+    .phase-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .phase-label {
+        min-width: auto;
+    }
+    
+    .phase-bar {
+        width: 100%;
+    }
+    
+    .efficiency-meter {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .efficiency-meter span {
+        min-width: auto;
+    }
+    
+    .recommendation-section {
+        padding: 12px;
+    }
+    
+    .recommendation-section h4 {
+        font-size: 0.9rem;
+    }
+    
+    .recommendation-list li {
+        font-size: 0.8rem;
+    }
+}
 .results-section {
     display: grid;
     gap: 25px;

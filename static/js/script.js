@@ -192,16 +192,6 @@ function displayResults(data) {
     confidenceBar.style.width = confidence + '%';
     confidenceText.textContent = confidence + '%';
     
-    // Update model info
-    const modelUsed = document.getElementById('modelUsed');
-    const modelAccuracy = document.getElementById('modelAccuracy');
-    if (data.model_used) {
-        modelUsed.textContent = data.model_used;
-    }
-    if (data.model_accuracy) {
-        modelAccuracy.textContent = Math.round(data.model_accuracy * 100);
-    }
-    
     // Update suggestions
     displaySuggestions(data.suggestions);
     
