@@ -348,8 +348,10 @@ function displayResults(data) {
         modelAccuracy.textContent = Math.round(data.model_accuracy * 100);
     }
     
-    // Update suggestions
-    displaySuggestions(data.suggestions);
+    // Generate and update suggestions
+    const formData = getFormData();
+    const suggestions = generateSuggestions(formData, data.prediction);
+    displaySuggestions(suggestions);
     
     // Update probabilities
     displayProbabilities(data.probabilities);
