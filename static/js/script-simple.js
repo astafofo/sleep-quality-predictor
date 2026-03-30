@@ -1,3 +1,18 @@
+/**
+ * Sleep Quality Predictor - Advanced JavaScript Implementation
+ * 
+ * This script provides comprehensive sleep quality analysis with the following features:
+ * - Sleep quality scoring (0-100 points)
+ * - Sleep phase analysis (Deep, REM, Light, Awake)
+ * - Sleep efficiency calculation
+ * - Personalized recommendations
+ * - Probability distribution analysis
+ * 
+ * @version 3.0.0
+ * @author Astafofo
+ * @license MIT
+ */
+
 // Simple working version
 console.log('Script loaded!');
 
