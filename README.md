@@ -2,35 +2,7 @@
 
 A sophisticated Machine Learning-based web application that analyzes lifestyle and physiological factors to classify sleep quality as **Good, Average, or Poor** with comprehensive insights and personalized recommendations.
 
-
-### 🤖 **Advanced ML Capabilities**
-- **Multi-Algorithm Analysis**: Random Forest, Logistic Regression, Decision Tree, SVM
-- **Intelligent Model Selection**: Automatically chooses the best performing algorithm
-- **Advanced Scoring Engine**: 100-point sleep quality scoring system
-- **Sleep Phase Analysis**: Deep, REM, Light, and Awake phase breakdown
-- **Sleep Efficiency Calculation**: Actual sleep vs time in bed analysis
-
-### 📊 **Comprehensive Analytics**
-- **Real-time Predictions**: Instant ML-based classification with confidence scores
-- **Sleep Quality Scoring**: 0-100 point comprehensive evaluation
-- **Phase Distribution**: Visual breakdown of sleep architecture
-- **Efficiency Metrics**: Sleep efficiency percentage calculation
-- **Trend Analysis**: Historical data visualization with Chart.js
-
-### 💡 **Intelligent Recommendations**
-- **Immediate Actions**: Priority recommendations for tonight
-- **Lifestyle Changes**: Medium-term improvement strategies
-- **Long-term Goals**: Sustainable sleep health objectives
-- **Personalized Tips**: Context-aware suggestions based on user data
-
-### 🎨 **Professional UI/UX**
-- **Responsive Design**: Mobile-first approach with beautiful gradients
-- **Interactive Elements**: Smooth animations and hover effects
-- **Data Visualization**: Progress bars, charts, and circular indicators
-- **Modern Styling**: Poppins typography with Font Awesome icons
-- **Accessibility**: Semantic HTML5 with ARIA labels
-
-## 🚀 **Live Demo**
+##  **Live Demo**
 
 **🌟 Deployed on Netlify:** [https://sleep-quality-predictor.netlify.app](https://sleep-quality-predictor.netlify.app)
 
@@ -101,71 +73,7 @@ A sophisticated Machine Learning-based web application that analyzes lifestyle a
 - **Responsive Charts**: Adaptive visualization sizing
 - **Thumb-Friendly**: Large tap targets for mobile
 
-## 🎯 **Advanced Algorithms**
-
-### **Sleep Quality Scoring Algorithm**
-```
-Total Score (100 points):
-├── Sleep Duration (30 points)
-├── Exercise Duration (20 points)
-├── Screen Time (15 points)
-├── Stress Level (15 points)
-├── Caffeine Intake (10 points)
-└── Mood Assessment (10 points)
-```
-
-### **Sleep Phase Analysis**
-- **Deep Sleep**: Physical recovery and memory consolidation
-- **REM Sleep**: Emotional regulation and creativity
-- **Light Sleep**: Transition phase and environmental awareness
-- **Awake**: Sleep interruptions and sleep efficiency impact
-
-### **Recommendation Engine**
-- **Immediate**: Tonight's priority actions
-- **Lifestyle**: Medium-term behavioral changes
-- **Long-term**: Sustainable health improvements
-
-## 🌐 **Deployment Options**
-
-### **Netlify (Recommended)**
-- **Static Site**: No server required
-- **Auto-deployment**: Git-based deployment
-- **Free Hosting**: Professional domain
-- **SSL Certificate**: HTTPS by default
-- **Global CDN**: Fast content delivery
-
-### **GitHub Pages**
-- **Free Hosting**: Direct from repository
-- **Custom Domain**: Personal domain support
-- **HTTPS**: Secure connection
-- **Jekyll Support**: Static site generation
-
-### **Vercel**
-- **Serverless Functions**: Backend API support
-- **Automatic Deployment**: Git integration
-- **Analytics**: Performance monitoring
-- **Edge Network**: Global distribution
-
-## 📊 **Model Performance**
-
-### **Algorithm Comparison**
-| Algorithm | Accuracy | Strengths | Use Case |
-|-----------|----------|-----------|----------|
-| Random Forest | 85-90% | Feature importance | Complex patterns |
-| Logistic Regression | 80-85% | Interpretability | Baseline model |
-| Decision Tree | 75-80% | Visual explanation | Simple rules |
-| SVM | 82-87% | Non-linear patterns | Complex boundaries |
-
-### **Feature Importance**
-1. **Sleep Duration**: Most critical factor
-2. **Stress Level**: High impact predictor
-3. **Exercise Duration**: Significant contributor
-4. **Screen Time**: Modern lifestyle factor
-5. **Caffeine Intake**: Biological influence
-6. **Mood State**: Psychological component
-7. **Sleep Interruptions**: Quality indicator
-
-## 🎨 **Design System**
+## � **Professional UI/UX**
 
 ### **Color Palette**
 - **Primary**: Deep blues (#667eea) and purples (#764ba2)
